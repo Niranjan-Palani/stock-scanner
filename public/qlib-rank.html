@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qlib Factor Ranking</title>
+<style>
+  :root{
+    --bg:#f5f4f0; --panel:#ffffff; --panel-border:#e2ded4; --text:#1c1a15; --muted:#7a7568;
+    --accent:#b5822a; --teal:#2f7d70; --red:#b5482f; --track:#eae6da;
+    --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0e0d0b; --panel:#17140f; --panel-border:#2c271d; --text:#efe9dc; --muted:#8f8674;
+      --accent:#d9a441; --teal:#4bb3a1; --red:#e0715a; --track:#231e15; }
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--text); font-family:var(--sans); }
+  .wrap{ max-width:960px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
+  header{ display:flex; justify-content:space-between; align-items:flex-end; gap:1rem; flex-wrap:wrap;
+    border-bottom:1px solid var(--panel-border); padding-bottom:1.25rem; margin-bottom:1.25rem; }
+  h1{ font-size:1.5rem; margin:0 0 .3rem; letter-spacing:-0.01em; }
+  .sub{ color:var(--muted); font-size:.85rem; }
+  nav a{ color:var(--muted); font-family:var(--mono); font-size:.75rem; text-decoration:none; }
+  nav a:hover{ color:var(--accent); }
+  .banner{ background:color-mix(in srgb, var(--red) 12%, transparent); border:1px solid color-mix(in srgb, var(--red) 35%, transparent);
+    color:var(--text); border-radius:8px; padding:.7rem 1rem; font-size:.8rem; margin-bottom:1.5rem; line-height:1.5; }
+  .banner b{ color:var(--red); }
+  .toolbar{ display:flex; align-items:center; gap:.8rem; margin-bottom:1.25rem; font-family:var(--mono); font-size:.78rem; color:var(--muted); }
+  button{ font-family:var(--mono); font-size:.78rem; background:var(--panel); color:var(--text);
+    border:1px solid var(--panel-border); border-radius:6px; padding:.45rem .9rem; cursor:pointer; }
+  button:hover{ border-color:var(--accent); color:var(--accent); }
+  button:disabled{ opacity:.5; cursor:default; }
+  .asof{ font-family:var(--mono); font-size:.75rem; color:var(--muted); }
+  table{ width:100%; border-collapse:collapse; font-family:var(--mono); font-size:.8rem; }
+  .tablewrap{ overflow-x:auto; border:1px solid var(--panel-border); border-radius:10px; background:var(--panel); }
+  th,td{ padding:.55rem .75rem; text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+  th:first-child,td:first-child{ text-align:left; font-family:var(--sans); }
+  thead th{ font-family:var(--sans); font-size:.68rem; text-transform:uppercase; letter-spacing:.07em;
+    color:var(--muted); font-weight:600; border-bottom:1px solid var(--panel-border); }
+  tbody tr{ border-bottom:1px solid var(--panel-border); }
+  tbody tr:last-child{ border-bottom:none; }
+  tbody tr:nth-child(-n+3){ background:color-mix(in srgb, var(--accent) 7%, transparent); }
+  tbody tr:nth-child(-n+3) td:first-child{ font-weight:700; }
+  tbody tr.unavailable{ opacity:.45; font-style:italic; }
+  .pos{ color:var(--teal); } .neg{ color:var(--red); }
+  .pending{ color:var(--muted); font-style:italic; padding:2rem; text-align:center; }
+  footer{ margin-top:1.5rem; font-family:var(--mono); font-size:.7rem; color:var(--muted); line-height:1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Qlib Factor Ranking</h1>
+      <div class="sub">Momentum / relative-volume composite score, computed from local Qlib data</div>
+    </div>
+    <nav><a href="/">&larr; back to live screener</a></nav>
+  </header>
+
+  <div class="banner">
+    <b>Demo data, not live.</b> This runs on Qlib's bundled sample dataset, which only covers
+    trading history through <b>2020-11-10</b>. It demonstrates the working pipeline
+    (Qlib data &rarr; features &rarr; ranked score), not a current signal. Point the script at a
+    fresher data source to make it real.
+  </div>
+
+  <div class="toolbar">
+    <button id="refreshBtn">Refresh ranking</button>
+    <span id="asof" class="asof"></span>
+  </div>
+
+  <div class="tablewrap">
+    <table id="rankTable">
+      <thead>
+        <tr>
+          <th>Symbol</th><th>Rank</th><th>Last Close</th><th>5d Ret</th><th>20d Ret</th>
+          <th>Volatility 20d</th><th>Rel Volume</th><th>Range %</th><th>Score</th>
+        </tr>
+      </thead>
+      <tbody id="rankBody">
+        <tr><td colspan="9" class="pending">Loading&hellip;</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    Data: Qlib local store (<span id="providerNote">~/.qlib/qlib_data/us_data</span>) &middot;
+    Score = 0.5&times;20d return% + 20&times;(rel.volume&minus;1) + 0.3&times;avg daily range% &middot;
+    Regenerate via <code>python scripts/qlib_rank.py</code> or the Refresh button above.
+  </footer>
+</div>
+
+<script>
+function fmtPct(v){
+  if (v === null || v === undefined) return '&mdash;';
+  const cls = v > 0 ? 'pos' : v < 0 ? 'neg' : '';
+  return `<span class="${cls}">${v > 0 ? '+' : ''}${v.toFixed(2)}%</span>`;
+}
+function fmtNum(v, suffix=''){
+  return (v === null || v === undefined) ? '&mdash;' : v.toFixed(2) + suffix;
+}
+
+function render(data){
+  const asof = document.getElementById('asof');
+  asof.textContent = data.dataAsOf ? `data as of ${data.dataAsOf}` : '';
+
+  const body = document.getElementById('rankBody');
+  if (!data.rows || !data.rows.length){
+    body.innerHTML = '<tr><td colspan="9" class="pending">No rows.</td></tr>';
+    return;
+  }
+  body.innerHTML = data.rows.map(r => {
+    if (!r.available){
+      return `<tr class="unavailable"><td>${r.sym}</td><td colspan="8">unavailable &mdash; ${r.error || 'no data'}</td></tr>`;
+    }
+    return `<tr>
+      <td>${r.sym}</td>
+      <td>${r.rank ?? '&mdash;'}</td>
+      <td>$${fmtNum(r.last_close)}</td>
+      <td>${fmtPct(r.ret_5d_pct)}</td>
+      <td>${fmtPct(r.ret_20d_pct)}</td>
+      <td>${fmtNum(r.volatility_20d_pct, '%')}</td>
+      <td>${fmtNum(r.rel_volume, '&times;')}</td>
+      <td>${fmtNum(r.true_range_pct, '%')}</td>
+      <td><b>${r.score ?? '&mdash;'}</b></td>
+    </tr>`;
+  }).join('');
+}
+
+async function load(){
+  try {
+    const res = await fetch('/api/qlib-rank');
+    if (!res.ok){
+      const err = await res.json().catch(() => ({}));
+      document.getElementById('rankBody').innerHTML =
+        `<tr><td colspan="9" class="pending">${err.error || 'No data yet — click Refresh.'}</td></tr>`;
+      return;
+    }
+    render(await res.json());
+  } catch (e) {
+    document.getElementById('rankBody').innerHTML =
+      `<tr><td colspan="9" class="pending">Failed to load: ${e.message}</td></tr>`;
+  }
+}
+
+document.getElementById('refreshBtn').addEventListener('click', async (e) => {
+  const btn = e.target;
+  btn.disabled = true;
+  btn.textContent = 'Running Qlib script…';
+  try {
+    const res = await fetch('/api/qlib-rank/refresh', { method: 'POST' });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'refresh failed');
+    render(data);
+  } catch (e) {
+    alert('Refresh failed: ' + e.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Refresh ranking';
+  }
+});
+
+load();
+</script>
+</body>
+</html>

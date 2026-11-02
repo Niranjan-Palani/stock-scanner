@@ -1,0 +1,6 @@
+rank,train_trades,train_expectancy_pct,train_win_rate,train_pf,test_trades,test_expectancy_pct,test_win_rate,test_pf,likely_overfit,max_loss_pct,trail_atr_mult
+1,37,1.0705,0.6216,5.4177,27,0.4381,0.4815,1.7901,False,0.004,2.0
+2,37,1.0448,0.6216,4.8983,27,0.4248,0.5185,1.7428,False,0.006,2.0
+3,37,0.9584,0.6486,3.4238,28,0.4546,0.5357,1.8357,False,0.008,2.0
+4,37,0.9584,0.6486,3.4238,28,0.4546,0.5357,1.8357,False,0.01,2.0
+5,76,0.9328,0.6184,3.3511,33,0.3392,0.5455,1.6798,False,0.004,1.0

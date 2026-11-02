@@ -1,0 +1,331 @@
+{
+  "generatedAt": null,
+  "dataAsOf": "2020-11-10",
+  "note": "Qlib sample dataset \u2014 stale demo data through 2020-11-10, not live prices.",
+  "rows": [
+    {
+      "sym": "NIO",
+      "available": true,
+      "last_close": 6.3,
+      "ret_5d_pct": 17.04,
+      "ret_20d_pct": 118.57,
+      "volatility_20d_pct": 6.09,
+      "rel_volume": 1.79,
+      "true_range_pct": 7.06,
+      "score": 77.202,
+      "rank": 1
+    },
+    {
+      "sym": "CCL",
+      "available": true,
+      "last_close": 0.58,
+      "ret_5d_pct": 22.03,
+      "ret_20d_pct": 1.64,
+      "volatility_20d_pct": 7.88,
+      "rel_volume": 2.92,
+      "true_range_pct": 5.4,
+      "score": 40.903,
+      "rank": 2
+    },
+    {
+      "sym": "HBAN",
+      "available": true,
+      "last_close": 1.15,
+      "ret_5d_pct": 9.38,
+      "ret_20d_pct": 22.65,
+      "volatility_20d_pct": 4.2,
+      "rel_volume": 1.92,
+      "true_range_pct": 3.9,
+      "score": 30.923,
+      "rank": 3
+    },
+    {
+      "sym": "LYFT",
+      "available": true,
+      "last_close": 0.46,
+      "ret_5d_pct": 37.44,
+      "ret_20d_pct": 17.43,
+      "volatility_20d_pct": 5.69,
+      "rel_volume": 1.88,
+      "true_range_pct": 4.71,
+      "score": 27.665,
+      "rank": 4
+    },
+    {
+      "sym": "PBR",
+      "available": true,
+      "last_close": 3.15,
+      "ret_5d_pct": 27.76,
+      "ret_20d_pct": 4.39,
+      "volatility_20d_pct": 3.55,
+      "rel_volume": 2.18,
+      "true_range_pct": 3.71,
+      "score": 26.814,
+      "rank": 5
+    },
+    {
+      "sym": "KEY",
+      "available": true,
+      "last_close": 1.41,
+      "ret_5d_pct": 12.93,
+      "ret_20d_pct": 22.34,
+      "volatility_20d_pct": 4.27,
+      "rel_volume": 1.54,
+      "true_range_pct": 3.81,
+      "score": 23.135,
+      "rank": 6
+    },
+    {
+      "sym": "PLTR",
+      "available": true,
+      "last_close": 1.47,
+      "ret_5d_pct": 33.33,
+      "ret_20d_pct": 47.37,
+      "volatility_20d_pct": 5.25,
+      "rel_volume": 0.86,
+      "true_range_pct": 7.17,
+      "score": 23.063,
+      "rank": 7
+    },
+    {
+      "sym": "NCLH",
+      "available": true,
+      "last_close": 0.81,
+      "ret_5d_pct": 21.57,
+      "ret_20d_pct": 14.97,
+      "volatility_20d_pct": 6.3,
+      "rel_volume": 1.57,
+      "true_range_pct": 5.52,
+      "score": 20.577,
+      "rank": 8
+    },
+    {
+      "sym": "UAA",
+      "available": true,
+      "last_close": 4.76,
+      "ret_5d_pct": 1.96,
+      "ret_20d_pct": 23.14,
+      "volatility_20d_pct": 3.08,
+      "rel_volume": 1.26,
+      "true_range_pct": 4.56,
+      "score": 18.166,
+      "rank": 9
+    },
+    {
+      "sym": "RF",
+      "available": true,
+      "last_close": 1.44,
+      "ret_5d_pct": 8.55,
+      "ret_20d_pct": 25.97,
+      "volatility_20d_pct": 4.08,
+      "rel_volume": 1.2,
+      "true_range_pct": 3.93,
+      "score": 18.141,
+      "rank": 10
+    },
+    {
+      "sym": "F",
+      "available": true,
+      "last_close": 0.55,
+      "ret_5d_pct": 6.35,
+      "ret_20d_pct": 19.37,
+      "volatility_20d_pct": 2.55,
+      "rel_volume": 1.36,
+      "true_range_pct": 3.24,
+      "score": 17.949,
+      "rank": 11
+    },
+    {
+      "sym": "AAL",
+      "available": true,
+      "last_close": 0.68,
+      "ret_5d_pct": 10.04,
+      "ret_20d_pct": -10.29,
+      "volatility_20d_pct": 4.1,
+      "rel_volume": 2.02,
+      "true_range_pct": 4.84,
+      "score": 16.803,
+      "rank": 12
+    },
+    {
+      "sym": "AMCR",
+      "available": true,
+      "last_close": 2.1,
+      "ret_5d_pct": 6.46,
+      "ret_20d_pct": 5.99,
+      "volatility_20d_pct": 1.82,
+      "rel_volume": 1.54,
+      "true_range_pct": 2.28,
+      "score": 14.454,
+      "rank": 13
+    },
+    {
+      "sym": "CFG",
+      "available": true,
+      "last_close": 1.7,
+      "ret_5d_pct": 13.06,
+      "ret_20d_pct": 20.41,
+      "volatility_20d_pct": 4.28,
+      "rel_volume": 1.07,
+      "true_range_pct": 4.06,
+      "score": 12.848,
+      "rank": 14
+    },
+    {
+      "sym": "VALE",
+      "available": true,
+      "last_close": 14.75,
+      "ret_5d_pct": 6.73,
+      "ret_20d_pct": 5.54,
+      "volatility_20d_pct": 2.03,
+      "rel_volume": 1.36,
+      "true_range_pct": 2.75,
+      "score": 10.859,
+      "rank": 15
+    },
+    {
+      "sym": "SIRI",
+      "available": true,
+      "last_close": 0.14,
+      "ret_5d_pct": 3.18,
+      "ret_20d_pct": 11.21,
+      "volatility_20d_pct": 2.07,
+      "rel_volume": 1.15,
+      "true_range_pct": 2.77,
+      "score": 9.433,
+      "rank": 16
+    },
+    {
+      "sym": "UAL",
+      "available": true,
+      "last_close": 1.26,
+      "ret_5d_pct": 17.72,
+      "ret_20d_pct": 4.57,
+      "volatility_20d_pct": 4.55,
+      "rel_volume": 1.11,
+      "true_range_pct": 4.75,
+      "score": 5.968,
+      "rank": 17
+    },
+    {
+      "sym": "T",
+      "available": true,
+      "last_close": 1.67,
+      "ret_5d_pct": 5.06,
+      "ret_20d_pct": 0.48,
+      "volatility_20d_pct": 1.5,
+      "rel_volume": 1.07,
+      "true_range_pct": 1.68,
+      "score": 2.22,
+      "rank": 18
+    },
+    {
+      "sym": "RIOT",
+      "available": true,
+      "last_close": 1.43,
+      "ret_5d_pct": -1.43,
+      "ret_20d_pct": 13.11,
+      "volatility_20d_pct": 5.68,
+      "rel_volume": 0.66,
+      "true_range_pct": 8.28,
+      "score": 2.149,
+      "rank": 19
+    },
+    {
+      "sym": "KGC",
+      "available": true,
+      "last_close": 1.45,
+      "ret_5d_pct": -5.84,
+      "ret_20d_pct": -16.75,
+      "volatility_20d_pct": 4.3,
+      "rel_volume": 1.44,
+      "true_range_pct": 4.2,
+      "score": 1.584,
+      "rank": 20
+    },
+    {
+      "sym": "RIG",
+      "available": true,
+      "last_close": 0.04,
+      "ret_5d_pct": 26.44,
+      "ret_20d_pct": 1.85,
+      "volatility_20d_pct": 6.13,
+      "rel_volume": 0.83,
+      "true_range_pct": 8.84,
+      "score": 0.179,
+      "rank": 21
+    },
+    {
+      "sym": "MARA",
+      "available": true,
+      "last_close": 0.02,
+      "ret_5d_pct": -1.35,
+      "ret_20d_pct": 5.8,
+      "volatility_20d_pct": 6.68,
+      "rel_volume": 0.43,
+      "true_range_pct": 10.4,
+      "score": -5.432,
+      "rank": 22
+    },
+    {
+      "sym": "DKNG",
+      "available": true,
+      "last_close": 4.12,
+      "ret_5d_pct": 7.71,
+      "ret_20d_pct": -20.91,
+      "volatility_20d_pct": 4.62,
+      "rel_volume": 0.56,
+      "true_range_pct": 6.8,
+      "score": -17.176,
+      "rank": 23
+    },
+    {
+      "sym": "CLSK",
+      "available": true,
+      "last_close": 0.28,
+      "ret_5d_pct": 1.16,
+      "ret_20d_pct": -14.58,
+      "volatility_20d_pct": 7.81,
+      "rel_volume": 0.33,
+      "true_range_pct": 10.25,
+      "score": -17.531,
+      "rank": 24
+    },
+    {
+      "sym": "SOFI",
+      "available": false,
+      "error": "no data in range",
+      "rank": null
+    },
+    {
+      "sym": "GRAB",
+      "available": false,
+      "error": "no data in range",
+      "rank": null
+    },
+    {
+      "sym": "WBD",
+      "available": false,
+      "error": "no data in range",
+      "rank": null
+    },
+    {
+      "sym": "OPEN",
+      "available": false,
+      "error": "no data in range",
+      "rank": null
+    },
+    {
+      "sym": "KVUE",
+      "available": false,
+      "error": "no data in range",
+      "rank": null
+    },
+    {
+      "sym": "PARA",
+      "available": false,
+      "error": "no data in range",
+      "rank": null
+    }
+  ]
+}

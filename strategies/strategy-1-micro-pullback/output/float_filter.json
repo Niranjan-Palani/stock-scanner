@@ -1,0 +1,38 @@
+{
+  "float_millions": {
+    "ATER": 8.26,
+    "MULN": null,
+    "CENN": 1.21,
+    "IMPP": 31.19,
+    "TOP": 504.39,
+    "NAK": 551.81,
+    "RSLS": null,
+    "PHUN": 19.7,
+    "KOSS": 5.34,
+    "GNS": 110.19,
+    "SAVA": null,
+    "BENF": 1.31,
+    "HUBC": 32.7,
+    "TIVC": 26.244821475018,
+    "GREE": null,
+    "SOS": 12.36,
+    "ADTX": 997.34,
+    "INVO": null,
+    "BTAI": 29.72,
+    "APDN": null,
+    "SNTI": 16.22,
+    "VERB": null,
+    "WISA": null,
+    "ELTP": 836.15,
+    "ONCY": 116.31
+  },
+  "passing_low_float": [
+    "ATER",
+    "CENN",
+    "PHUN",
+    "KOSS",
+    "BENF",
+    "SOS",
+    "SNTI"
+  ]
+}

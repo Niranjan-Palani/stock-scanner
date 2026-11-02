@@ -1,0 +1,18 @@
+# Secrets
+.env
+
+# Dependencies
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+
+# Logs and scratch output
+*.log
+log_tail*.txt
+fetch_log*.txt
+pillar_check_final.json
+
+# Cached market data (re-download with fetch_data.py; provider terms restrict redistribution)
+strategies/strategy-2-range-reversion/data/

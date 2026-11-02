@@ -1,0 +1,92 @@
+=== 1. Baseline (default params), pooled across tickers, train split ===
+{
+  "total_trades": 44,
+  "win_rate": 0.7727,
+  "avg_r": 0.087,
+  "profit_factor": 1.8661,
+  "expectancy_pct": 0.1054,
+  "max_drawdown_pct": -4.0254,
+  "avg_hold_minutes": 37.2,
+  "long_trades": 16,
+  "short_trades": 28,
+  "long_win_rate": 0.8125,
+  "short_win_rate": 0.75,
+  "exit_reasons": {
+    "time": 1,
+    "target": 40,
+    "stop": 3
+  }
+}
+
+=== 2. Grid search (regime + tolerance + entry params), train split ===
+grid_search: 12 combos x 30 tickers in 99.7s
+
+Top 10 by expectancy (min 8 trades), 12 qualifying of 12 combos:
+ adx_max  range_score_min  min_touches  respect_min  tolerance_pct  confirm_bars  total_trades  win_rate  expectancy_pct  profit_factor  avg_r
+      25             0.55            3          0.3         0.0015             2            53    0.7925          0.1725         2.1630 0.1694
+      25             0.50            3          0.3         0.0015             2            57    0.7895          0.1594         2.0491 0.1546
+      25             0.55            2          0.3         0.0015             2            40    0.7750          0.1142         2.0026 0.1028
+      25             0.50            2          0.3         0.0015             2            44    0.7727          0.1054         1.8661 0.0870
+      25             0.40            3          0.3         0.0015             2            65    0.7538          0.1013         1.5190 0.1124
+      25             0.40            2          0.3         0.0015             2            53    0.7547          0.0582         1.3702 0.0592
+      30             0.50            2          0.3         0.0015             2            76    0.8026          0.0235         1.1395 0.0389
+      30             0.50            3          0.3         0.0015             2            87    0.7816          0.0134         1.0587 0.0660
+      30             0.40            2          0.3         0.0015             2            93    0.7957          0.0056         1.0316 0.0123
+      30             0.55            3          0.3         0.0015             2            69    0.7826          0.0005         1.0021 0.0733
+
+Win-rate traps flagged (higher win% than median but worse expectancy than baseline): 4
+ adx_max  range_score_min  min_touches  respect_min  tolerance_pct  confirm_bars  total_trades  win_rate  expectancy_pct  profit_factor  avg_r
+      30             0.40            2          0.3         0.0015             2            93    0.7957          0.0056         1.0316 0.0123
+      30             0.50            2          0.3         0.0015             2            76    0.8026          0.0235         1.1395 0.0389
+      30             0.55            2          0.3         0.0015             2            65    0.7846         -0.0074         0.9601 0.0129
+      30             0.55            3          0.3         0.0015             2            69    0.7826          0.0005         1.0021 0.0733
+
+=== 3. Out-of-sample check on top 5 ranked combos ===
+ rank  train_trades  train_expectancy_pct  train_win_rate  train_pf  test_trades  test_expectancy_pct  test_win_rate  test_pf  likely_overfit  adx_max  range_score_min  min_touches  respect_min  tolerance_pct  confirm_bars
+    1            53                0.1725          0.7925    2.1630           29              -0.1347         0.7241   0.5297            True     25.0             0.55          3.0          0.3         0.0015           2.0
+    2            57                0.1594          0.7895    2.0491           30              -0.1100         0.7333   0.6025            True     25.0             0.50          3.0          0.3         0.0015           2.0
+    3            40                0.1142          0.7750    2.0026           24              -0.0224         0.7917   0.8905            True     25.0             0.55          2.0          0.3         0.0015           2.0
+    4            44                0.1054          0.7727    1.8661           25               0.0027         0.8000   1.0139            True     25.0             0.50          2.0          0.3         0.0015           2.0
+    5            65                0.1013          0.7538    1.5190           33              -0.0958         0.7576   0.6193            True     25.0             0.40          3.0          0.3         0.0015           2.0
+
+=== 4. Sensitivity sweep around baseline ===
+              parameter   value  total_trades  win_rate  expectancy_pct  profit_factor
+                adx_max 15.0000             3    0.6667          0.4403       137.5546
+                adx_max 20.0000            24    0.7917          0.2175         6.4910
+                adx_max 25.0000            44    0.7727          0.1054         1.8661
+                adx_max 30.0000            76    0.8026          0.0235         1.1395
+        range_score_min  0.4000            53    0.7547          0.0582         1.3702
+        range_score_min  0.5000            44    0.7727          0.1054         1.8661
+        range_score_min  0.6000            36    0.7500          0.0488         1.3856
+        range_score_min  0.7000             4    0.5000          0.0112         3.2934
+            respect_min  0.2000            44    0.7727          0.1054         1.8661
+            respect_min  0.4000            44    0.7727          0.1054         1.8661
+            respect_min  0.6000             0       NaN             NaN            NaN
+            respect_min  0.8000             0       NaN             NaN            NaN
+          tolerance_pct  0.0005            89    0.7753          0.0736         1.6375
+          tolerance_pct  0.0015            44    0.7727          0.1054         1.8661
+          tolerance_pct  0.0025            34    0.8529          0.0445         1.1679
+          tolerance_pct  0.0040            15    0.8667          0.1072         1.3281
+            min_touches  2.0000            44    0.7727          0.1054         1.8661
+            min_touches  3.0000            57    0.7895          0.1594         2.0491
+            min_touches  4.0000            76    0.7500          0.0357         1.1266
+  reversal_confirm_bars  2.0000            44    0.7727          0.1054         1.8661
+  reversal_confirm_bars  3.0000            44    0.7727          0.1054         1.8661
+  reversal_confirm_bars  4.0000            45    0.7778          0.1158         1.9729
+  reversal_confirm_bars  5.0000            45    0.7778          0.1158         1.9729
+           confirm_bars  1.0000          6004    0.7743         -0.0436         0.6379
+           confirm_bars  2.0000            44    0.7727          0.1054         1.8661
+           confirm_bars  3.0000            11    0.8182         -0.0643         0.8146
+stop_consecutive_closes  1.0000            44    0.7273         -0.0484         0.7853
+stop_consecutive_closes  2.0000            44    0.7727          0.1054         1.8661
+stop_consecutive_closes  3.0000            44    0.7727          0.0841         1.5883
+          max_hold_bars  8.0000            44    0.7500          0.0306         1.2041
+          max_hold_bars 16.0000            44    0.7727          0.1054         1.8661
+          max_hold_bars 24.0000            44    0.7727          0.1080         1.9061
+
+=== 5. Optional filters test (session / volume), baseline params otherwise ===
+session_filter ON -> {'total_trades': 38, 'win_rate': 0.7632, 'expectancy_pct': np.float64(0.1637), 'profit_factor': np.float64(3.0846)}
+volume_filter ON -> {'total_trades': 37, 'win_rate': 0.7838, 'expectancy_pct': np.float64(0.1777), 'profit_factor': np.float64(2.5941)}
+both ON -> {'total_trades': 31, 'win_rate': 0.7742, 'expectancy_pct': np.float64(0.2574), 'profit_factor': np.float64(5.5511)}
+
+Done. CSVs written to output/.

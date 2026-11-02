@@ -1,0 +1,326 @@
+{
+  "universe": [
+    "ATER",
+    "CENN",
+    "PHUN",
+    "KOSS",
+    "BENF",
+    "SOS",
+    "SNTI"
+  ],
+  "skipped_no_data": [],
+  "timeframe": "5min",
+  "params": {
+    "squeeze_lookback": 6,
+    "squeeze_min_pct": 0.03,
+    "squeeze_vol_mult": 1.5,
+    "max_pullback_bars": 2,
+    "pullback_light_vol_mult": 1.0,
+    "require_macd_positive": true,
+    "require_light_red_volume": true,
+    "reward_risk_min": 2.0,
+    "max_hold_bars": 24,
+    "fee_bps": 1.0,
+    "slippage_bps": 2.0,
+    "trail_enabled": true,
+    "trail_atr_mult": 2.0
+  },
+  "pooled_train": {
+    "total_trades": 62,
+    "win_rate": 0.1774,
+    "avg_r": -0.3026,
+    "profit_factor": 0.2541,
+    "expectancy_pct": -1.0292,
+    "max_drawdown_pct": NaN,
+    "avg_hold_minutes": 24.2,
+    "long_trades": 62,
+    "short_trades": 0,
+    "long_win_rate": 0.1774,
+    "short_win_rate": null,
+    "exit_reasons": {
+      "below_ema9": 16,
+      "stop": 21,
+      "below_vwap": 11,
+      "trail": 9,
+      "macd_cross": 5
+    }
+  },
+  "pooled_test": {
+    "total_trades": 22,
+    "win_rate": 0.0,
+    "avg_r": -0.8365,
+    "profit_factor": 0.0,
+    "expectancy_pct": -1.6596,
+    "max_drawdown_pct": NaN,
+    "avg_hold_minutes": 11.4,
+    "long_trades": 22,
+    "short_trades": 0,
+    "long_win_rate": 0.0,
+    "short_win_rate": null,
+    "exit_reasons": {
+      "below_vwap": 3,
+      "below_ema9": 6,
+      "stop": 13
+    }
+  },
+  "per_symbol": {
+    "ATER": {
+      "train": {
+        "total_trades": 7,
+        "win_rate": 0.1429,
+        "avg_r": -0.2393,
+        "profit_factor": 0.5964,
+        "expectancy_pct": -0.4002,
+        "max_drawdown_pct": -5.1409,
+        "avg_hold_minutes": 38.6,
+        "long_trades": 7,
+        "short_trades": 0,
+        "long_win_rate": 0.1429,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 2,
+          "trail": 1,
+          "below_ema9": 4
+        }
+      },
+      "test": {
+        "total_trades": 10,
+        "win_rate": 0.0,
+        "avg_r": -0.8281,
+        "profit_factor": 0.0,
+        "expectancy_pct": -1.4868,
+        "max_drawdown_pct": -14.8677,
+        "avg_hold_minutes": 11.5,
+        "long_trades": 10,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 2,
+          "below_ema9": 2,
+          "stop": 6
+        }
+      }
+    },
+    "CENN": {
+      "train": {
+        "total_trades": 10,
+        "win_rate": 0.2,
+        "avg_r": 0.1126,
+        "profit_factor": 0.5251,
+        "expectancy_pct": -0.4955,
+        "max_drawdown_pct": -5.1303,
+        "avg_hold_minutes": 22.0,
+        "long_trades": 10,
+        "short_trades": 0,
+        "long_win_rate": 0.2,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "macd_cross": 2,
+          "trail": 2,
+          "stop": 6
+        }
+      },
+      "test": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      }
+    },
+    "PHUN": {
+      "train": {
+        "total_trades": 1,
+        "win_rate": 0.0,
+        "avg_r": -0.7303,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.885,
+        "max_drawdown_pct": -0.885,
+        "avg_hold_minutes": 45.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_ema9": 1
+        }
+      },
+      "test": {
+        "total_trades": 2,
+        "win_rate": 0.0,
+        "avg_r": -0.8379,
+        "profit_factor": 0.0,
+        "expectancy_pct": -1.1046,
+        "max_drawdown_pct": -2.2092,
+        "avg_hold_minutes": 15.0,
+        "long_trades": 2,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_ema9": 1,
+          "stop": 1
+        }
+      }
+    },
+    "KOSS": {
+      "train": {
+        "total_trades": 6,
+        "win_rate": 0.1667,
+        "avg_r": -0.5051,
+        "profit_factor": 0.2263,
+        "expectancy_pct": -0.7087,
+        "max_drawdown_pct": -4.2519,
+        "avg_hold_minutes": 15.8,
+        "long_trades": 6,
+        "short_trades": 0,
+        "long_win_rate": 0.1667,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "trail": 1,
+          "below_ema9": 1,
+          "below_vwap": 2,
+          "stop": 2
+        }
+      },
+      "test": {
+        "total_trades": 1,
+        "win_rate": 0.0,
+        "avg_r": -1.0237,
+        "profit_factor": 0.0,
+        "expectancy_pct": -1.7142,
+        "max_drawdown_pct": -1.7142,
+        "avg_hold_minutes": 5.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "stop": 1
+        }
+      }
+    },
+    "BENF": {
+      "train": {
+        "total_trades": 15,
+        "win_rate": 0.2,
+        "avg_r": -0.4162,
+        "profit_factor": 0.1967,
+        "expectancy_pct": -1.3615,
+        "max_drawdown_pct": -20.4218,
+        "avg_hold_minutes": 26.3,
+        "long_trades": 15,
+        "short_trades": 0,
+        "long_win_rate": 0.2,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_ema9": 4,
+          "stop": 4,
+          "below_vwap": 4,
+          "trail": 1,
+          "macd_cross": 2
+        }
+      },
+      "test": {
+        "total_trades": 3,
+        "win_rate": 0.0,
+        "avg_r": -0.7937,
+        "profit_factor": 0.0,
+        "expectancy_pct": -2.097,
+        "max_drawdown_pct": -6.2911,
+        "avg_hold_minutes": 11.7,
+        "long_trades": 3,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_ema9": 1,
+          "stop": 2
+        }
+      }
+    },
+    "SOS": {
+      "train": {
+        "total_trades": 11,
+        "win_rate": 0.0,
+        "avg_r": -0.8071,
+        "profit_factor": 0.0,
+        "expectancy_pct": -2.4218,
+        "max_drawdown_pct": -26.6393,
+        "avg_hold_minutes": 12.7,
+        "long_trades": 11,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "trail": 1,
+          "below_vwap": 3,
+          "below_ema9": 2,
+          "stop": 5
+        }
+      },
+      "test": {
+        "total_trades": 2,
+        "win_rate": 0.0,
+        "avg_r": -1.0185,
+        "profit_factor": 0.0,
+        "expectancy_pct": -2.277,
+        "max_drawdown_pct": -4.554,
+        "avg_hold_minutes": 10.0,
+        "long_trades": 2,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "stop": 2
+        }
+      }
+    },
+    "SNTI": {
+      "train": {
+        "total_trades": 12,
+        "win_rate": 0.3333,
+        "avg_r": 0.0556,
+        "profit_factor": 0.604,
+        "expectancy_pct": -0.3212,
+        "max_drawdown_pct": -7.8421,
+        "avg_hold_minutes": 27.9,
+        "long_trades": 12,
+        "short_trades": 0,
+        "long_win_rate": 0.3333,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "macd_cross": 1,
+          "trail": 3,
+          "below_ema9": 4,
+          "stop": 4
+        }
+      },
+      "test": {
+        "total_trades": 4,
+        "win_rate": 0.0,
+        "avg_r": -0.7511,
+        "profit_factor": 0.0,
+        "expectancy_pct": -1.7188,
+        "max_drawdown_pct": -6.8751,
+        "avg_hold_minutes": 11.2,
+        "long_trades": 4,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 1,
+          "below_ema9": 2,
+          "stop": 1
+        }
+      }
+    }
+  }
+}

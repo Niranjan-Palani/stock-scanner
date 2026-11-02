@@ -1,0 +1,1097 @@
+{
+  "universe": [
+    "F",
+    "T",
+    "PLTR",
+    "SOFI",
+    "NIO",
+    "AAL",
+    "CCL",
+    "PBR",
+    "KGC",
+    "GRAB",
+    "RIG",
+    "VALE",
+    "WBD",
+    "UAA",
+    "OPEN",
+    "CLSK",
+    "RIOT",
+    "MARA",
+    "AMCR",
+    "KVUE",
+    "HBAN",
+    "KEY",
+    "CFG",
+    "RF",
+    "NCLH",
+    "UAL",
+    "DKNG",
+    "LYFT",
+    "PARA",
+    "SIRI"
+  ],
+  "skipped_no_data": [],
+  "timeframe": "5min",
+  "params": {
+    "squeeze_lookback": 6,
+    "squeeze_min_pct": 0.03,
+    "squeeze_vol_mult": 1.5,
+    "max_pullback_bars": 2,
+    "pullback_light_vol_mult": 1.0,
+    "require_macd_positive": true,
+    "require_light_red_volume": true,
+    "reward_risk_min": 2.0,
+    "max_hold_bars": 24,
+    "fee_bps": 1.0,
+    "slippage_bps": 2.0,
+    "trail_enabled": true,
+    "trail_atr_mult": 2.0
+  },
+  "pooled_train": {
+    "total_trades": 87,
+    "win_rate": 0.2759,
+    "avg_r": -0.0143,
+    "profit_factor": 0.8379,
+    "expectancy_pct": -0.0822,
+    "max_drawdown_pct": NaN,
+    "avg_hold_minutes": 38.2,
+    "long_trades": 87,
+    "short_trades": 0,
+    "long_win_rate": 0.2759,
+    "short_win_rate": null,
+    "exit_reasons": {
+      "below_ema9": 6,
+      "below_vwap": 16,
+      "macd_cross": 9,
+      "stop": 40,
+      "trail": 16
+    }
+  },
+  "pooled_test": {
+    "total_trades": 26,
+    "win_rate": 0.2692,
+    "avg_r": 0.6214,
+    "profit_factor": 1.9171,
+    "expectancy_pct": 0.3039,
+    "max_drawdown_pct": NaN,
+    "avg_hold_minutes": 61.7,
+    "long_trades": 26,
+    "short_trades": 0,
+    "long_win_rate": 0.2692,
+    "short_win_rate": null,
+    "exit_reasons": {
+      "below_ema9": 4,
+      "below_vwap": 6,
+      "macd_cross": 3,
+      "stop": 6,
+      "trail": 7
+    }
+  },
+  "per_symbol": {
+    "F": {
+      "train": {
+        "total_trades": 3,
+        "win_rate": 0.3333,
+        "avg_r": 0.4589,
+        "profit_factor": 1.5457,
+        "expectancy_pct": 0.1882,
+        "max_drawdown_pct": -1.0344,
+        "avg_hold_minutes": 20.0,
+        "long_trades": 3,
+        "short_trades": 0,
+        "long_win_rate": 0.3333,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 1,
+          "stop": 1,
+          "trail": 1
+        }
+      },
+      "test": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      }
+    },
+    "T": {
+      "train": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      },
+      "test": {
+        "total_trades": 2,
+        "win_rate": 0.5,
+        "avg_r": -0.2308,
+        "profit_factor": 0.7353,
+        "expectancy_pct": -0.0714,
+        "max_drawdown_pct": -0.5398,
+        "avg_hold_minutes": 65.0,
+        "long_trades": 2,
+        "short_trades": 0,
+        "long_win_rate": 0.5,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "stop": 1,
+          "trail": 1
+        }
+      }
+    },
+    "PLTR": {
+      "train": {
+        "total_trades": 5,
+        "win_rate": 0.4,
+        "avg_r": 0.209,
+        "profit_factor": 1.1923,
+        "expectancy_pct": 0.126,
+        "max_drawdown_pct": -1.2821,
+        "avg_hold_minutes": 52.0,
+        "long_trades": 5,
+        "short_trades": 0,
+        "long_win_rate": 0.4,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 1,
+          "macd_cross": 1,
+          "stop": 2,
+          "trail": 1
+        }
+      },
+      "test": {
+        "total_trades": 3,
+        "win_rate": 0.3333,
+        "avg_r": 0.6051,
+        "profit_factor": 3.9786,
+        "expectancy_pct": 1.2888,
+        "max_drawdown_pct": -0.6857,
+        "avg_hold_minutes": 100.0,
+        "long_trades": 3,
+        "short_trades": 0,
+        "long_win_rate": 0.3333,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_ema9": 1,
+          "stop": 1,
+          "trail": 1
+        }
+      }
+    },
+    "SOFI": {
+      "train": {
+        "total_trades": 5,
+        "win_rate": 0.0,
+        "avg_r": -0.7757,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.673,
+        "max_drawdown_pct": -3.3651,
+        "avg_hold_minutes": 8.0,
+        "long_trades": 5,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 2,
+          "stop": 3
+        }
+      },
+      "test": {
+        "total_trades": 1,
+        "win_rate": 1.0,
+        "avg_r": 11.1487,
+        "profit_factor": Infinity,
+        "expectancy_pct": 3.4642,
+        "max_drawdown_pct": 0.0,
+        "avg_hold_minutes": 250.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 1.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "trail": 1
+        }
+      }
+    },
+    "NIO": {
+      "train": {
+        "total_trades": 2,
+        "win_rate": 0.0,
+        "avg_r": -1.0046,
+        "profit_factor": 0.0,
+        "expectancy_pct": -1.0139,
+        "max_drawdown_pct": -2.0278,
+        "avg_hold_minutes": 5.0,
+        "long_trades": 2,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 1,
+          "stop": 1
+        }
+      },
+      "test": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      }
+    },
+    "AAL": {
+      "train": {
+        "total_trades": 2,
+        "win_rate": 0.5,
+        "avg_r": 0.7638,
+        "profit_factor": 4.8785,
+        "expectancy_pct": 0.9644,
+        "max_drawdown_pct": -0.4973,
+        "avg_hold_minutes": 117.5,
+        "long_trades": 2,
+        "short_trades": 0,
+        "long_win_rate": 0.5,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "stop": 1,
+          "trail": 1
+        }
+      },
+      "test": {
+        "total_trades": 1,
+        "win_rate": 0.0,
+        "avg_r": -0.0224,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.0293,
+        "max_drawdown_pct": -0.0293,
+        "avg_hold_minutes": 55.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "macd_cross": 1
+        }
+      }
+    },
+    "CCL": {
+      "train": {
+        "total_trades": 6,
+        "win_rate": 0.5,
+        "avg_r": 0.1308,
+        "profit_factor": 2.0944,
+        "expectancy_pct": 0.2222,
+        "max_drawdown_pct": -1.2181,
+        "avg_hold_minutes": 66.7,
+        "long_trades": 6,
+        "short_trades": 0,
+        "long_win_rate": 0.5,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_ema9": 1,
+          "macd_cross": 1,
+          "stop": 3,
+          "trail": 1
+        }
+      },
+      "test": {
+        "total_trades": 1,
+        "win_rate": 0.0,
+        "avg_r": -0.1011,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.079,
+        "max_drawdown_pct": -0.079,
+        "avg_hold_minutes": 45.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "macd_cross": 1
+        }
+      }
+    },
+    "PBR": {
+      "train": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      },
+      "test": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      }
+    },
+    "KGC": {
+      "train": {
+        "total_trades": 4,
+        "win_rate": 0.0,
+        "avg_r": -0.5629,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.3872,
+        "max_drawdown_pct": -1.5488,
+        "avg_hold_minutes": 15.0,
+        "long_trades": 4,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 3,
+          "stop": 1
+        }
+      },
+      "test": {
+        "total_trades": 1,
+        "win_rate": 1.0,
+        "avg_r": 1.241,
+        "profit_factor": Infinity,
+        "expectancy_pct": 1.5232,
+        "max_drawdown_pct": 0.0,
+        "avg_hold_minutes": 65.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 1.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "macd_cross": 1
+        }
+      }
+    },
+    "GRAB": {
+      "train": {
+        "total_trades": 2,
+        "win_rate": 0.0,
+        "avg_r": -1.0813,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.554,
+        "max_drawdown_pct": -1.108,
+        "avg_hold_minutes": 15.0,
+        "long_trades": 2,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "stop": 2
+        }
+      },
+      "test": {
+        "total_trades": 1,
+        "win_rate": 0.0,
+        "avg_r": -0.1436,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.1908,
+        "max_drawdown_pct": -0.1908,
+        "avg_hold_minutes": 25.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "trail": 1
+        }
+      }
+    },
+    "RIG": {
+      "train": {
+        "total_trades": 2,
+        "win_rate": 0.5,
+        "avg_r": 1.0192,
+        "profit_factor": 1.2381,
+        "expectancy_pct": 0.0774,
+        "max_drawdown_pct": -0.6497,
+        "avg_hold_minutes": 137.5,
+        "long_trades": 2,
+        "short_trades": 0,
+        "long_win_rate": 0.5,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "macd_cross": 1,
+          "trail": 1
+        }
+      },
+      "test": {
+        "total_trades": 1,
+        "win_rate": 1.0,
+        "avg_r": 6.9415,
+        "profit_factor": Infinity,
+        "expectancy_pct": 3.9438,
+        "max_drawdown_pct": 0.0,
+        "avg_hold_minutes": 285.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 1.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "trail": 1
+        }
+      }
+    },
+    "VALE": {
+      "train": {
+        "total_trades": 2,
+        "win_rate": 0.0,
+        "avg_r": -1.2876,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.2473,
+        "max_drawdown_pct": -0.4946,
+        "avg_hold_minutes": 10.0,
+        "long_trades": 2,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "stop": 2
+        }
+      },
+      "test": {
+        "total_trades": 1,
+        "win_rate": 0.0,
+        "avg_r": -1.2567,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.1957,
+        "max_drawdown_pct": -0.1957,
+        "avg_hold_minutes": 5.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "stop": 1
+        }
+      }
+    },
+    "WBD": {
+      "train": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      },
+      "test": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      }
+    },
+    "UAA": {
+      "train": {
+        "total_trades": 3,
+        "win_rate": 0.3333,
+        "avg_r": 0.0181,
+        "profit_factor": 0.9808,
+        "expectancy_pct": -0.0038,
+        "max_drawdown_pct": -0.6002,
+        "avg_hold_minutes": 35.0,
+        "long_trades": 3,
+        "short_trades": 0,
+        "long_win_rate": 0.3333,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 1,
+          "below_ema9": 1,
+          "trail": 1
+        }
+      },
+      "test": {
+        "total_trades": 2,
+        "win_rate": 0.0,
+        "avg_r": -0.847,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.7756,
+        "max_drawdown_pct": -1.5511,
+        "avg_hold_minutes": 5.0,
+        "long_trades": 2,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 1,
+          "stop": 1
+        }
+      }
+    },
+    "OPEN": {
+      "train": {
+        "total_trades": 2,
+        "win_rate": 0.0,
+        "avg_r": -1.0419,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.9931,
+        "max_drawdown_pct": -1.9862,
+        "avg_hold_minutes": 5.0,
+        "long_trades": 2,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "stop": 2
+        }
+      },
+      "test": {
+        "total_trades": 3,
+        "win_rate": 0.3333,
+        "avg_r": 0.2681,
+        "profit_factor": 1.6952,
+        "expectancy_pct": 0.2181,
+        "max_drawdown_pct": -0.9411,
+        "avg_hold_minutes": 91.7,
+        "long_trades": 3,
+        "short_trades": 0,
+        "long_win_rate": 0.3333,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_ema9": 1,
+          "stop": 1,
+          "trail": 1
+        }
+      }
+    },
+    "CLSK": {
+      "train": {
+        "total_trades": 8,
+        "win_rate": 0.25,
+        "avg_r": -0.1749,
+        "profit_factor": 0.6095,
+        "expectancy_pct": -0.3216,
+        "max_drawdown_pct": -6.5896,
+        "avg_hold_minutes": 29.4,
+        "long_trades": 8,
+        "short_trades": 0,
+        "long_win_rate": 0.25,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 2,
+          "stop": 4,
+          "trail": 2
+        }
+      },
+      "test": {
+        "total_trades": 1,
+        "win_rate": 0.0,
+        "avg_r": -0.0277,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.028,
+        "max_drawdown_pct": -0.028,
+        "avg_hold_minutes": 10.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 1
+        }
+      }
+    },
+    "RIOT": {
+      "train": {
+        "total_trades": 10,
+        "win_rate": 0.0,
+        "avg_r": -0.8913,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.7456,
+        "max_drawdown_pct": -7.4559,
+        "avg_hold_minutes": 9.5,
+        "long_trades": 10,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 2,
+          "below_ema9": 1,
+          "stop": 7
+        }
+      },
+      "test": {
+        "total_trades": 2,
+        "win_rate": 0.0,
+        "avg_r": -0.5416,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.649,
+        "max_drawdown_pct": -1.2981,
+        "avg_hold_minutes": 7.5,
+        "long_trades": 2,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 1,
+          "stop": 1
+        }
+      }
+    },
+    "MARA": {
+      "train": {
+        "total_trades": 6,
+        "win_rate": 0.5,
+        "avg_r": 0.1688,
+        "profit_factor": 1.8203,
+        "expectancy_pct": 0.442,
+        "max_drawdown_pct": -2.5361,
+        "avg_hold_minutes": 50.0,
+        "long_trades": 6,
+        "short_trades": 0,
+        "long_win_rate": 0.5,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_ema9": 1,
+          "macd_cross": 1,
+          "stop": 2,
+          "trail": 2
+        }
+      },
+      "test": {
+        "total_trades": 1,
+        "win_rate": 0.0,
+        "avg_r": -0.4055,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.6218,
+        "max_drawdown_pct": -0.6218,
+        "avg_hold_minutes": 20.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 1
+        }
+      }
+    },
+    "AMCR": {
+      "train": {
+        "total_trades": 1,
+        "win_rate": 0.0,
+        "avg_r": -1.0999,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.4397,
+        "max_drawdown_pct": -0.4397,
+        "avg_hold_minutes": 10.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "stop": 1
+        }
+      },
+      "test": {
+        "total_trades": 1,
+        "win_rate": 0.0,
+        "avg_r": -0.0926,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.0404,
+        "max_drawdown_pct": -0.0404,
+        "avg_hold_minutes": 5.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 1
+        }
+      }
+    },
+    "KVUE": {
+      "train": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      },
+      "test": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      }
+    },
+    "HBAN": {
+      "train": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      },
+      "test": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      }
+    },
+    "KEY": {
+      "train": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      },
+      "test": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      }
+    },
+    "CFG": {
+      "train": {
+        "total_trades": 1,
+        "win_rate": 0.0,
+        "avg_r": -1.1663,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.2802,
+        "max_drawdown_pct": -0.2802,
+        "avg_hold_minutes": 5.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "stop": 1
+        }
+      },
+      "test": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      }
+    },
+    "RF": {
+      "train": {
+        "total_trades": 1,
+        "win_rate": 0.0,
+        "avg_r": -0.6653,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.4129,
+        "max_drawdown_pct": -0.4129,
+        "avg_hold_minutes": 30.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_ema9": 1
+        }
+      },
+      "test": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      }
+    },
+    "NCLH": {
+      "train": {
+        "total_trades": 4,
+        "win_rate": 0.5,
+        "avg_r": 1.6739,
+        "profit_factor": 6.1145,
+        "expectancy_pct": 1.0628,
+        "max_drawdown_pct": -0.8312,
+        "avg_hold_minutes": 63.8,
+        "long_trades": 4,
+        "short_trades": 0,
+        "long_win_rate": 0.5,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 2,
+          "trail": 2
+        }
+      },
+      "test": {
+        "total_trades": 1,
+        "win_rate": 0.0,
+        "avg_r": -0.0901,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.06,
+        "max_drawdown_pct": -0.06,
+        "avg_hold_minutes": 5.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 1
+        }
+      }
+    },
+    "UAL": {
+      "train": {
+        "total_trades": 6,
+        "win_rate": 0.6667,
+        "avg_r": 1.8934,
+        "profit_factor": 6.1168,
+        "expectancy_pct": 0.7847,
+        "max_drawdown_pct": -0.9202,
+        "avg_hold_minutes": 78.3,
+        "long_trades": 6,
+        "short_trades": 0,
+        "long_win_rate": 0.6667,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_ema9": 1,
+          "macd_cross": 2,
+          "stop": 1,
+          "trail": 2
+        }
+      },
+      "test": {
+        "total_trades": 1,
+        "win_rate": 1.0,
+        "avg_r": 0.6387,
+        "profit_factor": Infinity,
+        "expectancy_pct": 0.4305,
+        "max_drawdown_pct": 0.0,
+        "avg_hold_minutes": 75.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 1.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "trail": 1
+        }
+      }
+    },
+    "DKNG": {
+      "train": {
+        "total_trades": 7,
+        "win_rate": 0.2857,
+        "avg_r": -0.3054,
+        "profit_factor": 0.3526,
+        "expectancy_pct": -0.3913,
+        "max_drawdown_pct": -3.253,
+        "avg_hold_minutes": 22.1,
+        "long_trades": 7,
+        "short_trades": 0,
+        "long_win_rate": 0.2857,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 1,
+          "macd_cross": 1,
+          "stop": 4,
+          "trail": 1
+        }
+      },
+      "test": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      }
+    },
+    "LYFT": {
+      "train": {
+        "total_trades": 3,
+        "win_rate": 0.3333,
+        "avg_r": -0.3865,
+        "profit_factor": 0.2969,
+        "expectancy_pct": -0.3391,
+        "max_drawdown_pct": -1.4468,
+        "avg_hold_minutes": 38.3,
+        "long_trades": 3,
+        "short_trades": 0,
+        "long_win_rate": 0.3333,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "macd_cross": 2,
+          "stop": 1
+        }
+      },
+      "test": {
+        "total_trades": 1,
+        "win_rate": 0.0,
+        "avg_r": -0.7373,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.7905,
+        "max_drawdown_pct": -0.7905,
+        "avg_hold_minutes": 15.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_ema9": 1
+        }
+      }
+    },
+    "PARA": {
+      "train": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      },
+      "test": {
+        "total_trades": 1,
+        "win_rate": 0.0,
+        "avg_r": -0.318,
+        "profit_factor": 0.0,
+        "expectancy_pct": -0.9525,
+        "max_drawdown_pct": -0.9525,
+        "avg_hold_minutes": 15.0,
+        "long_trades": 1,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_ema9": 1
+        }
+      }
+    },
+    "SIRI": {
+      "train": {
+        "total_trades": 2,
+        "win_rate": 0.5,
+        "avg_r": 2.18,
+        "profit_factor": 5.6884,
+        "expectancy_pct": 1.0451,
+        "max_drawdown_pct": -0.4458,
+        "avg_hold_minutes": 75.0,
+        "long_trades": 2,
+        "short_trades": 0,
+        "long_win_rate": 0.5,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "stop": 1,
+          "trail": 1
+        }
+      },
+      "test": {
+        "total_trades": 0,
+        "win_rate": null,
+        "avg_r": null,
+        "profit_factor": null,
+        "expectancy_pct": null,
+        "max_drawdown_pct": null,
+        "avg_hold_minutes": null,
+        "long_trades": 0,
+        "short_trades": 0,
+        "long_win_rate": null,
+        "short_win_rate": null
+      }
+    }
+  }
+}

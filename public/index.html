@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strategy 1 — Live Volume Screener</title>
+<style>
+  :root{
+    --bg:#f5f4f0; --panel:#ffffff; --panel-border:#e2ded4; --text:#1c1a15; --muted:#7a7568;
+    --accent:#b5822a; --teal:#2f7d70; --red:#b5482f; --track:#eae6da;
+    --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0e0d0b; --panel:#17140f; --panel-border:#2c271d; --text:#efe9dc; --muted:#8f8674;
+      --accent:#d9a441; --teal:#4bb3a1; --red:#e0715a; --track:#231e15; }
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--text); font-family:var(--sans); }
+  .wrap{ max-width:960px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
+  header{ display:flex; justify-content:space-between; align-items:flex-end; gap:1rem; flex-wrap:wrap;
+    border-bottom:1px solid var(--panel-border); padding-bottom:1.25rem; margin-bottom:1.75rem; }
+  h1{ font-size:1.5rem; margin:0 0 .3rem; letter-spacing:-0.01em; }
+  .sub{ color:var(--muted); font-size:.85rem; }
+  .status{ text-align:right; font-family:var(--mono); font-size:.78rem; color:var(--muted); }
+  .status .dot{ display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--teal);
+    margin-right:.4em; box-shadow:0 0 0 3px color-mix(in srgb, var(--teal) 22%, transparent); }
+  .status.stale .dot{ background:var(--red); box-shadow:0 0 0 3px color-mix(in srgb, var(--red) 22%, transparent); }
+  .filters{ display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:1.5rem; align-items:center;
+    font-family:var(--mono); font-size:.78rem; color:var(--muted); }
+  .filters input{ font-family:var(--mono); font-size:.78rem; width:4.5rem; background:var(--panel);
+    border:1px solid var(--panel-border); color:var(--text); border-radius:5px; padding:.3rem .5rem; }
+  section h2{ font-size:.72rem; text-transform:uppercase; letter-spacing:.09em; color:var(--muted); margin:0 0 .8rem; font-weight:600; }
+  .top5{ display:grid; grid-template-columns:repeat(5,1fr); gap:.7rem; margin-bottom:2.25rem; }
+  @media (max-width:720px){ .top5{ grid-template-columns:repeat(2,1fr); } }
+  .card{ background:var(--panel); border:1px solid var(--panel-border); border-radius:10px; padding:.9rem .85rem; position:relative; }
+  .card .rank{ position:absolute; top:.6rem; right:.7rem; font-family:var(--mono); font-size:.68rem; color:var(--muted); }
+  .card .tk{ font-weight:700; font-size:1.05rem; }
+  .card .px{ font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:.95rem; margin-top:.35rem; }
+  .chg{ font-family:var(--mono); font-size:.75rem; margin-left:.4em; }
+  .chg.pos, .chg.good, .vol b.good{ color:var(--teal); } .chg.neg, .chg.warn, .vol b.warn{ color:var(--red); }
+  .card .vol{ margin-top:.55rem; font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:.72rem; color:var(--muted); }
+  .card .vol b{ color:var(--text); font-weight:600; }
+  .card .bar{ margin-top:.5rem; height:4px; border-radius:2px; background:var(--track); overflow:hidden; }
+  .card .bar i{ display:block; height:100%; background:var(--accent); }
+  table{ width:100%; border-collapse:collapse; font-family:var(--mono); font-size:.8rem; }
+  .tablewrap{ overflow-x:auto; border:1px solid var(--panel-border); border-radius:10px; background:var(--panel); }
+  th,td{ padding:.55rem .75rem; text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+  th:first-child,td:first-child{ text-align:left; font-family:var(--sans); }
+  thead th{ font-family:var(--sans); font-size:.68rem; text-transform:uppercase; letter-spacing:.07em;
+    color:var(--muted); font-weight:600; border-bottom:1px solid var(--panel-border); }
+  tbody tr{ border-bottom:1px solid var(--panel-border); }
+  tbody tr:last-child{ border-bottom:none; }
+  tbody tr.qualifies{ background:color-mix(in srgb, var(--accent) 7%, transparent); }
+  tbody tr.qualifies td:first-child{ font-weight:700; }
+  .pending{ color:var(--muted); font-style:italic; }
+  footer{ margin-top:2rem; font-family:var(--mono); font-size:.7rem; color:var(--muted); line-height:1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1><span style="font-family:var(--mono);font-size:.72rem;color:var(--accent);vertical-align:middle;border:1px solid var(--accent);border-radius:5px;padding:.1rem .45rem;margin-right:.5rem;">STRATEGY 1</span>Five Pillars Screener</h1>
+      <div class="sub">Ranked by pillars passed, then relative volume · running locally on your machine · <a href="/qlib-rank.html" style="color:var(--accent);">Qlib factor ranking &rarr;</a></div>
+    </div>
+    <div class="status" id="status"><span class="dot"></span><span id="statusText">connecting…</span></div>
+  </header>
+
+  <div class="filters">
+    <label>min $ <input id="minPrice" type="number" value="2" step="1"></label>
+    <label>max $ <input id="maxPrice" type="number" value="20" step="1"></label>
+  </div>
+
+  <section id="econSection" style="margin-bottom:1.75rem;">
+    <h2>Economic calendar</h2>
+    <div class="tablewrap" style="padding:.75rem .9rem;" id="econPanel">
+      <span class="pending">loading…</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Top 5 setups</h2>
+    <div class="top5" id="top5"></div>
+  </section>
+
+  <section>
+    <h2>Full watchlist</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Ticker</th><th>Price</th><th>Chg</th><th>Rel Vol</th><th>Float (M)</th><th>News</th><th title="Ross Cameron's Five Pillars: price $2–$20 · up 25%+ today · relative volume 5x+ · float under 20M shares · news catalyst within 24h">Pillars ⓘ</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    Quotes refresh continuously in the background (server paces requests under Finnhub's free-tier rate
+    limit). Float/average-volume, today's relative volume, and news catalysts each refresh on their own
+    cadence to stay under Finnhub's rate limit — expect the last two columns to lag price by a few minutes.
+    Relative volume and news require endpoints some free-tier keys can't reach; if a symbol never gets a
+    rel-vol or news value, that pillar just won't pass for it. This page polls the local server every 5s —
+    close this browser tab any time; the server keeps running until you stop it (Ctrl+C in its terminal window).
+  </footer>
+</div>
+
+<script>
+function fmtNum(n){ if(n==null||isNaN(n)) return "—"; if(n>=1000) return (n/1000).toFixed(2)+"M"; return n.toFixed(2)+"K"; }
+function fmtPrice(n){ return n==null ? "—" : "$"+n.toFixed(2); }
+
+async function poll(){
+  try{
+    const res = await fetch('/api/watchlist');
+    const data = await res.json();
+    render(data);
+    setStatus('live · ' + new Date().toLocaleTimeString(), false);
+  }catch(e){
+    setStatus('server unreachable — is it still running?', true);
+  }
+}
+
+function fmtEventTime(ms){
+  const d = new Date(ms);
+  return d.toLocaleString(undefined, { weekday:'short', hour:'2-digit', minute:'2-digit' });
+}
+
+async function pollEconomic(){
+  try{
+    const res = await fetch('/api/economic-events');
+    const data = await res.json();
+    renderEconomic(data);
+  }catch(e){
+    document.getElementById('econPanel').innerHTML = '<span class="pending">unavailable</span>';
+  }
+}
+
+function renderEconomic(data){
+  const panel = document.getElementById('econPanel');
+  const badge = data.source === 'mock'
+    ? '<span style="font-family:var(--mono);font-size:.68rem;color:var(--muted);border:1px solid var(--panel-border);border-radius:5px;padding:.1rem .4rem;margin-left:.5rem;">MOCK DATA</span>'
+    : '';
+  const flag = data.volatility && data.volatility.active
+    ? `<div class="chg warn" style="margin-bottom:.5rem;">⚠ high-impact event within 6h — expect elevated market-wide volume/volatility</div>`
+    : '';
+  const now = Date.now();
+  const rows = (data.events || []).slice().sort((a,b)=>a.time-b.time).map(e => {
+    const past = e.time < now;
+    const impactColor = e.impact === 'high' ? 'var(--red)' : e.impact === 'medium' ? 'var(--accent)' : 'var(--muted)';
+    return `<div style="display:flex;justify-content:space-between;gap:1rem;padding:.3rem 0;font-family:var(--mono);font-size:.78rem;${past?'opacity:.5;':''}">
+      <span><span style="color:${impactColor};">●</span> ${e.name}</span>
+      <span>${e.actual != null ? 'actual ' + e.actual + ' · ' : ''}fcst ${e.forecast ?? '—'} · ${fmtEventTime(e.time)}</span>
+    </div>`;
+  }).join('');
+  panel.innerHTML = `<div style="margin-bottom:.4rem;"><b>This week's high/medium-impact US releases</b>${badge}</div>${flag}${rows || '<span class="pending">no events</span>'}`;
+}
+
+function setStatus(text, stale){
+  document.getElementById('statusText').textContent = text;
+  document.getElementById('status').classList.toggle('stale', !!stale);
+}
+
+const PILLAR_LABELS = {
+  priceRange: 'price $2–$20',
+  upBig: 'up 25%+ today',
+  relVolOk: 'rel vol 5x+',
+  lowFloat: 'float under 20M',
+  hasNews: 'news within 24h'
+};
+
+// Flame icon mirrors the day-trade-dash convention: fresher news = hotter.
+function flame(ageHours){
+  if(ageHours == null) return '';
+  if(ageHours <= 2) return '🔴';
+  if(ageHours <= 12) return '🟠';
+  if(ageHours <= 24) return '🟡';
+  return '';
+}
+
+function fitFromRow(r){
+  const reasons = Object.entries(r.pillars || {}).filter(([,v]) => v).map(([k]) => PILLAR_LABELS[k]);
+  const pts = r.pillarsPassed || 0;
+  const cls = pts >= 4 ? 'good' : pts >= 2 ? '' : 'warn';
+  const label = pts >= 4 ? 'Strong' : pts >= 2 ? 'Moderate' : pts > 0 ? 'Weak' : 'Poor';
+  return { pts, label, cls, reasons };
+}
+
+function render(data){
+  const minP = parseFloat(document.getElementById('minPrice').value) || 0;
+  const maxP = parseFloat(document.getElementById('maxPrice').value) || Infinity;
+
+  const rows = data.rows.map(r => ({
+    ...r,
+    qualifies: r.price != null && r.price >= minP && r.price <= maxP,
+    fit: fitFromRow(r)
+  }));
+
+  document.getElementById('tbody').innerHTML = rows.map(r => `
+    <tr class="${r.qualifies ? 'qualifies' : ''}">
+      <td>${r.sym}</td>
+      <td>${r.price != null ? fmtPrice(r.price) : '<span class="pending">…</span>'}</td>
+      <td class="chg ${r.change > 0 ? 'pos' : r.change < 0 ? 'neg' : ''}">${r.change != null ? (r.change>0?'+':'')+r.change.toFixed(2)+'%' : '—'}</td>
+      <td class="${r.pillars.relVolOk ? 'chg pos' : ''}">${r.relVol != null ? r.relVol.toFixed(1)+'x' : '—'}</td>
+      <td>${r.float != null ? r.float.toFixed(1) : '—'}</td>
+      <td title="${r.newsHeadline ? r.newsHeadline.replace(/"/g,'&quot;') : ''}">${flame(r.newsAgeHours)} ${r.newsAgeHours != null ? r.newsAgeHours.toFixed(0)+'h' : '—'}</td>
+      <td class="chg ${r.fit.cls}" title="${r.fit.reasons.join(', ') || 'no pillars met'}">${r.fit.pts}/5 · ${r.fit.label}</td>
+    </tr>`).join('');
+
+  const qualifying = rows.filter(r => r.qualifies)
+    .sort((a,b) => (b.fit.pts - a.fit.pts) || ((b.relVol||0) - (a.relVol||0))).slice(0,5);
+  const top5 = document.getElementById('top5');
+  if(qualifying.length === 0){
+    top5.innerHTML = `<div class="card" style="grid-column:1/-1;color:var(--muted);text-align:center;">no symbols currently in range</div>`;
+  } else {
+    top5.innerHTML = qualifying.map((r,i) => `
+      <div class="card">
+        <span class="rank">#${i+1}</span>
+        <div class="tk">${flame(r.newsAgeHours)} ${r.sym}</div>
+        <div class="px">${fmtPrice(r.price)}<span class="chg ${r.change>0?'pos':r.change<0?'neg':''}">${r.change!=null?(r.change>0?'+':'')+r.change.toFixed(2)+'%':''}</span></div>
+        <div class="vol">rel vol <b>${r.relVol != null ? r.relVol.toFixed(1)+'x' : '—'}</b> · float <b>${r.float != null ? r.float.toFixed(1)+'M' : '—'}</b></div>
+        <div class="vol">pillars <b class="${r.fit.cls}">${r.fit.pts}/5 · ${r.fit.label}</b></div>
+        <div class="bar"><i style="width:${(r.fit.pts/5*100).toFixed(0)}%"></i></div>
+      </div>`).join('');
+  }
+}
+
+document.getElementById('minPrice').addEventListener('input', poll);
+document.getElementById('maxPrice').addEventListener('input', poll);
+poll();
+setInterval(poll, 5000);
+pollEconomic();
+setInterval(pollEconomic, 60000);
+</script>
+</body>
+</html>

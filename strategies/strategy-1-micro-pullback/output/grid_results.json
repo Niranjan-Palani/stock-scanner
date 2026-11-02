@@ -1,0 +1,506 @@
+{
+  "universe": [
+    "ATER",
+    "CENN",
+    "PHUN",
+    "KOSS",
+    "BENF",
+    "SOS",
+    "SNTI"
+  ],
+  "grid": {
+    "squeeze_min_pct": [
+      0.02,
+      0.03,
+      0.05
+    ],
+    "squeeze_vol_mult": [
+      1.2,
+      1.5,
+      2.0
+    ],
+    "pullback_light_vol_mult": [
+      0.8,
+      1.0,
+      1.5
+    ],
+    "reward_risk_min": [
+      1.5,
+      2.0,
+      3.0
+    ]
+  },
+  "top_10_by_train_expectancy": [
+    {
+      "params": {
+        "squeeze_min_pct": 0.02,
+        "squeeze_vol_mult": 1.2,
+        "pullback_light_vol_mult": 1.0,
+        "reward_risk_min": 3.0
+      },
+      "train": {
+        "total_trades": 92,
+        "win_rate": 0.2283,
+        "avg_r": -0.2244,
+        "profit_factor": 0.4098,
+        "expectancy_pct": -0.7249,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 26.7,
+        "long_trades": 92,
+        "short_trades": 0,
+        "long_win_rate": 0.2283,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "macd_cross": 11,
+          "stop": 29,
+          "trail": 7,
+          "below_ema9": 24,
+          "below_vwap": 21
+        }
+      },
+      "test": {
+        "total_trades": 23,
+        "win_rate": 0.0,
+        "avg_r": -0.8519,
+        "profit_factor": 0.0,
+        "expectancy_pct": -1.5038,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 13.9,
+        "long_trades": 23,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 2,
+          "below_ema9": 7,
+          "stop": 14
+        }
+      },
+      "likely_overfit": "False"
+    },
+    {
+      "params": {
+        "squeeze_min_pct": 0.02,
+        "squeeze_vol_mult": 1.2,
+        "pullback_light_vol_mult": 1.0,
+        "reward_risk_min": 2.0
+      },
+      "train": {
+        "total_trades": 92,
+        "win_rate": 0.2283,
+        "avg_r": -0.2371,
+        "profit_factor": 0.3796,
+        "expectancy_pct": -0.762,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 26.8,
+        "long_trades": 92,
+        "short_trades": 0,
+        "long_win_rate": 0.2283,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "macd_cross": 8,
+          "stop": 29,
+          "trail": 11,
+          "below_ema9": 23,
+          "below_vwap": 21
+        }
+      },
+      "test": {
+        "total_trades": 23,
+        "win_rate": 0.0,
+        "avg_r": -0.8519,
+        "profit_factor": 0.0,
+        "expectancy_pct": -1.5038,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 13.9,
+        "long_trades": 23,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 2,
+          "below_ema9": 7,
+          "stop": 14
+        }
+      },
+      "likely_overfit": "False"
+    },
+    {
+      "params": {
+        "squeeze_min_pct": 0.02,
+        "squeeze_vol_mult": 1.2,
+        "pullback_light_vol_mult": 0.8,
+        "reward_risk_min": 3.0
+      },
+      "train": {
+        "total_trades": 82,
+        "win_rate": 0.2317,
+        "avg_r": -0.2741,
+        "profit_factor": 0.3735,
+        "expectancy_pct": -0.7865,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 27.1,
+        "long_trades": 82,
+        "short_trades": 0,
+        "long_win_rate": 0.2317,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "macd_cross": 10,
+          "stop": 21,
+          "trail": 5,
+          "below_ema9": 25,
+          "below_vwap": 21
+        }
+      },
+      "test": {
+        "total_trades": 23,
+        "win_rate": 0.0,
+        "avg_r": -0.8519,
+        "profit_factor": 0.0,
+        "expectancy_pct": -1.5038,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 13.9,
+        "long_trades": 23,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 2,
+          "below_ema9": 7,
+          "stop": 14
+        }
+      },
+      "likely_overfit": "False"
+    },
+    {
+      "params": {
+        "squeeze_min_pct": 0.02,
+        "squeeze_vol_mult": 1.2,
+        "pullback_light_vol_mult": 1.0,
+        "reward_risk_min": 1.5
+      },
+      "train": {
+        "total_trades": 92,
+        "win_rate": 0.2174,
+        "avg_r": -0.2564,
+        "profit_factor": 0.3649,
+        "expectancy_pct": -0.8108,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 26.7,
+        "long_trades": 92,
+        "short_trades": 0,
+        "long_win_rate": 0.2174,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "macd_cross": 6,
+          "stop": 31,
+          "trail": 16,
+          "below_ema9": 19,
+          "below_vwap": 20
+        }
+      },
+      "test": {
+        "total_trades": 23,
+        "win_rate": 0.0,
+        "avg_r": -0.8519,
+        "profit_factor": 0.0,
+        "expectancy_pct": -1.5038,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 13.9,
+        "long_trades": 23,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 2,
+          "below_ema9": 7,
+          "stop": 14
+        }
+      },
+      "likely_overfit": "False"
+    },
+    {
+      "params": {
+        "squeeze_min_pct": 0.02,
+        "squeeze_vol_mult": 1.5,
+        "pullback_light_vol_mult": 1.0,
+        "reward_risk_min": 3.0
+      },
+      "train": {
+        "total_trades": 85,
+        "win_rate": 0.2118,
+        "avg_r": -0.2178,
+        "profit_factor": 0.3767,
+        "expectancy_pct": -0.8121,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 26.7,
+        "long_trades": 85,
+        "short_trades": 0,
+        "long_win_rate": 0.2118,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "macd_cross": 11,
+          "stop": 27,
+          "trail": 7,
+          "below_ema9": 23,
+          "below_vwap": 17
+        }
+      },
+      "test": {
+        "total_trades": 22,
+        "win_rate": 0.0,
+        "avg_r": -0.8394,
+        "profit_factor": 0.0,
+        "expectancy_pct": -1.5562,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 14.3,
+        "long_trades": 22,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 2,
+          "below_ema9": 7,
+          "stop": 13
+        }
+      },
+      "likely_overfit": "False"
+    },
+    {
+      "params": {
+        "squeeze_min_pct": 0.02,
+        "squeeze_vol_mult": 1.2,
+        "pullback_light_vol_mult": 0.8,
+        "reward_risk_min": 2.0
+      },
+      "train": {
+        "total_trades": 82,
+        "win_rate": 0.2317,
+        "avg_r": -0.2883,
+        "profit_factor": 0.3404,
+        "expectancy_pct": -0.8281,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 27.2,
+        "long_trades": 82,
+        "short_trades": 0,
+        "long_win_rate": 0.2317,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "macd_cross": 7,
+          "stop": 21,
+          "trail": 9,
+          "below_ema9": 24,
+          "below_vwap": 21
+        }
+      },
+      "test": {
+        "total_trades": 23,
+        "win_rate": 0.0,
+        "avg_r": -0.8519,
+        "profit_factor": 0.0,
+        "expectancy_pct": -1.5038,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 13.9,
+        "long_trades": 23,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 2,
+          "below_ema9": 7,
+          "stop": 14
+        }
+      },
+      "likely_overfit": "False"
+    },
+    {
+      "params": {
+        "squeeze_min_pct": 0.02,
+        "squeeze_vol_mult": 1.5,
+        "pullback_light_vol_mult": 1.0,
+        "reward_risk_min": 2.0
+      },
+      "train": {
+        "total_trades": 85,
+        "win_rate": 0.2118,
+        "avg_r": -0.2315,
+        "profit_factor": 0.3459,
+        "expectancy_pct": -0.8523,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 26.8,
+        "long_trades": 85,
+        "short_trades": 0,
+        "long_win_rate": 0.2118,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "macd_cross": 8,
+          "stop": 27,
+          "trail": 11,
+          "below_ema9": 22,
+          "below_vwap": 17
+        }
+      },
+      "test": {
+        "total_trades": 22,
+        "win_rate": 0.0,
+        "avg_r": -0.8394,
+        "profit_factor": 0.0,
+        "expectancy_pct": -1.5562,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 14.3,
+        "long_trades": 22,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 2,
+          "below_ema9": 7,
+          "stop": 13
+        }
+      },
+      "likely_overfit": "False"
+    },
+    {
+      "params": {
+        "squeeze_min_pct": 0.02,
+        "squeeze_vol_mult": 1.2,
+        "pullback_light_vol_mult": 0.8,
+        "reward_risk_min": 1.5
+      },
+      "train": {
+        "total_trades": 82,
+        "win_rate": 0.2195,
+        "avg_r": -0.299,
+        "profit_factor": 0.3331,
+        "expectancy_pct": -0.8545,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 27.0,
+        "long_trades": 82,
+        "short_trades": 0,
+        "long_win_rate": 0.2195,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "macd_cross": 6,
+          "stop": 22,
+          "trail": 15,
+          "below_ema9": 19,
+          "below_vwap": 20
+        }
+      },
+      "test": {
+        "total_trades": 23,
+        "win_rate": 0.0,
+        "avg_r": -0.8519,
+        "profit_factor": 0.0,
+        "expectancy_pct": -1.5038,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 13.9,
+        "long_trades": 23,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 2,
+          "below_ema9": 7,
+          "stop": 14
+        }
+      },
+      "likely_overfit": "False"
+    },
+    {
+      "params": {
+        "squeeze_min_pct": 0.02,
+        "squeeze_vol_mult": 1.5,
+        "pullback_light_vol_mult": 0.8,
+        "reward_risk_min": 3.0
+      },
+      "train": {
+        "total_trades": 78,
+        "win_rate": 0.2051,
+        "avg_r": -0.2697,
+        "profit_factor": 0.3555,
+        "expectancy_pct": -0.8717,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 26.7,
+        "long_trades": 78,
+        "short_trades": 0,
+        "long_win_rate": 0.2051,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "macd_cross": 10,
+          "stop": 22,
+          "trail": 5,
+          "below_ema9": 24,
+          "below_vwap": 17
+        }
+      },
+      "test": {
+        "total_trades": 22,
+        "win_rate": 0.0,
+        "avg_r": -0.8394,
+        "profit_factor": 0.0,
+        "expectancy_pct": -1.5562,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 14.3,
+        "long_trades": 22,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 2,
+          "below_ema9": 7,
+          "stop": 13
+        }
+      },
+      "likely_overfit": "False"
+    },
+    {
+      "params": {
+        "squeeze_min_pct": 0.03,
+        "squeeze_vol_mult": 1.2,
+        "pullback_light_vol_mult": 1.0,
+        "reward_risk_min": 3.0
+      },
+      "train": {
+        "total_trades": 66,
+        "win_rate": 0.197,
+        "avg_r": -0.2664,
+        "profit_factor": 0.3247,
+        "expectancy_pct": -0.8915,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 25.0,
+        "long_trades": 66,
+        "short_trades": 0,
+        "long_win_rate": 0.197,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "macd_cross": 7,
+          "stop": 21,
+          "trail": 6,
+          "below_ema9": 19,
+          "below_vwap": 13
+        }
+      },
+      "test": {
+        "total_trades": 23,
+        "win_rate": 0.0,
+        "avg_r": -0.8492,
+        "profit_factor": 0.0,
+        "expectancy_pct": -1.6027,
+        "max_drawdown_pct": NaN,
+        "avg_hold_minutes": 11.1,
+        "long_trades": 23,
+        "short_trades": 0,
+        "long_win_rate": 0.0,
+        "short_win_rate": null,
+        "exit_reasons": {
+          "below_vwap": 3,
+          "below_ema9": 6,
+          "stop": 14
+        }
+      },
+      "likely_overfit": "False"
+    }
+  ],
+  "all_results_count": 81
+}
